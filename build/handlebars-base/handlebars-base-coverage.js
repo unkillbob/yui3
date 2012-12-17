@@ -48,157 +48,182 @@ _yuitest_coverline("build/handlebars-base/handlebars-base.js", 12);
 var Handlebars = {};
 
 _yuitest_coverline("build/handlebars-base/handlebars-base.js", 14);
-Handlebars.VERSION = "1.0.beta.5";
+(function(Handlebars) {
 
+_yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 2)", 14);
 _yuitest_coverline("build/handlebars-base/handlebars-base.js", 16);
+Handlebars.VERSION = "1.0.rc.1";
+
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 18);
 Handlebars.helpers  = {};
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 17);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 19);
 Handlebars.partials = {};
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 19);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 21);
 Handlebars.registerHelper = function(name, fn, inverse) {
-  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "registerHelper", 19);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 20);
+  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "registerHelper", 21);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 22);
 if(inverse) { fn.not = inverse; }
-  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 21);
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 23);
 this.helpers[name] = fn;
 };
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 24);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 26);
 Handlebars.registerPartial = function(name, str) {
-  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "registerPartial", 24);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 25);
+  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "registerPartial", 26);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 27);
 this.partials[name] = str;
 };
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 28);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 30);
 Handlebars.registerHelper('helperMissing', function(arg) {
-  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 2)", 28);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 29);
+  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 3)", 30);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 31);
 if(arguments.length === 2) {
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 30);
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 32);
 return undefined;
   } else {
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 32);
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 34);
 throw new Error("Could not find property '" + arg + "'");
   }
 });
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 36);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 38);
 var toString = Object.prototype.toString, functionType = "[object Function]";
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 38);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 40);
 Handlebars.registerHelper('blockHelperMissing', function(context, options) {
-  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 3)", 38);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 39);
+  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 4)", 40);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 41);
 var inverse = options.inverse || function() {}, fn = options.fn;
 
 
-  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 42);
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 44);
 var ret = "";
-  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 43);
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 45);
 var type = toString.call(context);
 
-  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 45);
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 47);
 if(type === functionType) { context = context.call(this); }
 
-  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 47);
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 49);
 if(context === true) {
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 48);
-return fn(this);
-  } else {_yuitest_coverline("build/handlebars-base/handlebars-base.js", 49);
-if(context === false || context == null) {
     _yuitest_coverline("build/handlebars-base/handlebars-base.js", 50);
-return inverse(this);
+return fn(this);
   } else {_yuitest_coverline("build/handlebars-base/handlebars-base.js", 51);
-if(type === "[object Array]") {
+if(context === false || context == null) {
     _yuitest_coverline("build/handlebars-base/handlebars-base.js", 52);
+return inverse(this);
+  } else {_yuitest_coverline("build/handlebars-base/handlebars-base.js", 53);
+if(type === "[object Array]") {
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 54);
 if(context.length > 0) {
-      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 53);
-for(var i=0, j=context.length; i<j; i++) {
-        _yuitest_coverline("build/handlebars-base/handlebars-base.js", 54);
-ret = ret + fn(context[i]);
-      }
+      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 55);
+return Handlebars.helpers.each(context, options);
     } else {
       _yuitest_coverline("build/handlebars-base/handlebars-base.js", 57);
-ret = inverse(this);
+return inverse(this);
     }
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 59);
-return ret;
   } else {
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 61);
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 60);
 return fn(context);
   }}}
 });
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 65);
-Handlebars.registerHelper('each', function(context, options) {
-  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 5)", 65);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 66);
-var fn = options.fn, inverse = options.inverse;
-  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 67);
-var ret = "";
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 64);
+Handlebars.K = function() {};
 
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 66);
+Handlebars.createFrame = Object.create || function(object) {
+  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 6)", 66);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 67);
+Handlebars.K.prototype = object;
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 68);
+var obj = new Handlebars.K();
   _yuitest_coverline("build/handlebars-base/handlebars-base.js", 69);
+Handlebars.K.prototype = null;
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 70);
+return obj;
+};
+
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 73);
+Handlebars.registerHelper('each', function(context, options) {
+  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 7)", 73);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 74);
+var fn = options.fn, inverse = options.inverse;
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 75);
+var ret = "", data;
+
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 77);
+if (options.data) {
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 78);
+data = Handlebars.createFrame(options.data);
+  }
+
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 81);
 if(context && context.length > 0) {
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 70);
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 82);
 for(var i=0, j=context.length; i<j; i++) {
-      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 71);
-ret = ret + fn(context[i]);
+      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 83);
+if (data) { data.index = i; }
+      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 84);
+ret = ret + fn(context[i], { data: data });
     }
   } else {
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 74);
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 87);
 ret = inverse(this);
   }
-  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 76);
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 89);
 return ret;
 });
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 79);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 92);
 Handlebars.registerHelper('if', function(context, options) {
-  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 6)", 79);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 80);
+  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 8)", 92);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 93);
 var type = toString.call(context);
-  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 81);
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 94);
 if(type === functionType) { context = context.call(this); }
 
-  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 83);
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 96);
 if(!context || Handlebars.Utils.isEmpty(context)) {
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 84);
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 97);
 return options.inverse(this);
   } else {
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 86);
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 99);
 return options.fn(this);
   }
 });
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 90);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 103);
 Handlebars.registerHelper('unless', function(context, options) {
-  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 7)", 90);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 91);
+  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 9)", 103);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 104);
 var fn = options.fn, inverse = options.inverse;
-  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 92);
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 105);
 options.fn = inverse;
-  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 93);
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 106);
 options.inverse = fn;
 
-  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 95);
+  _yuitest_coverline("build/handlebars-base/handlebars-base.js", 108);
 return Handlebars.helpers['if'].call(this, context, options);
 });
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 98);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 111);
 Handlebars.registerHelper('with', function(context, options) {
-  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 8)", 98);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 99);
+  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 10)", 111);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 112);
 return options.fn(context);
 });
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 102);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 115);
 Handlebars.registerHelper('log', function(context) {
-  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 9)", 102);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 103);
+  _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 11)", 115);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 116);
 Handlebars.log(context);
 });
+
+}(Handlebars));
 
 // END(BROWSER)
 // This file provides a YUI-specific implementation of Handlebars' lib/utils.js
@@ -206,66 +231,66 @@ Handlebars.log(context);
 // we have to maintain a complete fork of this file rather than just overriding
 // specific parts.
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 112);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 127);
 var Lang = Y.Lang;
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 114);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 129);
 Handlebars.Exception = function (message) {
-    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "Exception", 114);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 115);
+    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "Exception", 129);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 130);
 var error = Error.prototype.constructor.apply(this, arguments),
         key;
 
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 118);
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 133);
 for (key in error) {
-        _yuitest_coverline("build/handlebars-base/handlebars-base.js", 119);
+        _yuitest_coverline("build/handlebars-base/handlebars-base.js", 134);
 if (error.hasOwnProperty(key)) {
-            _yuitest_coverline("build/handlebars-base/handlebars-base.js", 120);
+            _yuitest_coverline("build/handlebars-base/handlebars-base.js", 135);
 this[key] = error[key];
         }
     }
 
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 124);
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 139);
 this.message = error.message;
 };
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 127);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 142);
 Handlebars.Exception.prototype = new Error();
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 129);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 144);
 Handlebars.SafeString = function (string) {
-    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "SafeString", 129);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 130);
+    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "SafeString", 144);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 145);
 this.string = string;
 };
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 133);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 148);
 Handlebars.SafeString.prototype.toString = function () {
-    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "toString", 133);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 134);
+    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "toString", 148);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 149);
 return this.string.toString();
 };
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 137);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 152);
 Handlebars.Utils = {
     escapeExpression: function (string) {
         // Skip escaping for empty strings.
-        _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "escapeExpression", 138);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 140);
+        _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "escapeExpression", 153);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 155);
 if (string === '') {
-            _yuitest_coverline("build/handlebars-base/handlebars-base.js", 141);
+            _yuitest_coverline("build/handlebars-base/handlebars-base.js", 156);
 return string;
         }
 
         // Don't escape SafeStrings, since they're already (presumed to be)
         // safe.
-        _yuitest_coverline("build/handlebars-base/handlebars-base.js", 146);
+        _yuitest_coverline("build/handlebars-base/handlebars-base.js", 161);
 if (string instanceof Handlebars.SafeString) {
-            _yuitest_coverline("build/handlebars-base/handlebars-base.js", 147);
+            _yuitest_coverline("build/handlebars-base/handlebars-base.js", 162);
 return string.toString();
-        } else {_yuitest_coverline("build/handlebars-base/handlebars-base.js", 148);
+        } else {_yuitest_coverline("build/handlebars-base/handlebars-base.js", 163);
 if (string === false || !Lang.isValue(string)) {
-            _yuitest_coverline("build/handlebars-base/handlebars-base.js", 149);
+            _yuitest_coverline("build/handlebars-base/handlebars-base.js", 164);
 return '';
         }}
 
@@ -274,54 +299,54 @@ return '';
         // surprising than avoiding double-escaping, especially since
         // a lack of double-escaping would make it impossible to use Handlebars
         // for things like displaying escaped code snippets.
-        _yuitest_coverline("build/handlebars-base/handlebars-base.js", 157);
+        _yuitest_coverline("build/handlebars-base/handlebars-base.js", 172);
 return Y.Escape.html(string);
     },
 
     isEmpty: function (value) {
-        _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "isEmpty", 160);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 161);
+        _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "isEmpty", 175);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 176);
 if (value === false
                 || !Lang.isValue(value)
                 || (Lang.isArray(value) && !value.length)) {
 
-            _yuitest_coverline("build/handlebars-base/handlebars-base.js", 165);
+            _yuitest_coverline("build/handlebars-base/handlebars-base.js", 180);
 return true;
         }
 
-        _yuitest_coverline("build/handlebars-base/handlebars-base.js", 168);
+        _yuitest_coverline("build/handlebars-base/handlebars-base.js", 183);
 return false;
     }
 };
 /* THIS FILE IS GENERATED BY A BUILD SCRIPT - DO NOT EDIT! */
 
 // BEGIN(BROWSER)
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 174);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 189);
 Handlebars.VM = {
   template: function(templateSpec) {
     // Just add water
-    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "template", 175);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 177);
+    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "template", 190);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 192);
 var container = {
       escapeExpression: Handlebars.Utils.escapeExpression,
       invokePartial: Handlebars.VM.invokePartial,
       programs: [],
       program: function(i, fn, data) {
-        _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "program", 181);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 182);
+        _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "program", 196);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 197);
 var programWrapper = this.programs[i];
-        _yuitest_coverline("build/handlebars-base/handlebars-base.js", 183);
+        _yuitest_coverline("build/handlebars-base/handlebars-base.js", 198);
 if(data) {
-          _yuitest_coverline("build/handlebars-base/handlebars-base.js", 184);
+          _yuitest_coverline("build/handlebars-base/handlebars-base.js", 199);
 return Handlebars.VM.program(fn, data);
-        } else {_yuitest_coverline("build/handlebars-base/handlebars-base.js", 185);
+        } else {_yuitest_coverline("build/handlebars-base/handlebars-base.js", 200);
 if(programWrapper) {
-          _yuitest_coverline("build/handlebars-base/handlebars-base.js", 186);
+          _yuitest_coverline("build/handlebars-base/handlebars-base.js", 201);
 return programWrapper;
         } else {
-          _yuitest_coverline("build/handlebars-base/handlebars-base.js", 188);
+          _yuitest_coverline("build/handlebars-base/handlebars-base.js", 203);
 programWrapper = this.programs[i] = Handlebars.VM.program(fn);
-          _yuitest_coverline("build/handlebars-base/handlebars-base.js", 189);
+          _yuitest_coverline("build/handlebars-base/handlebars-base.js", 204);
 return programWrapper;
         }}
       },
@@ -329,73 +354,73 @@ return programWrapper;
       noop: Handlebars.VM.noop
     };
 
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 196);
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 211);
 return function(context, options) {
-      _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 10)", 196);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 197);
+      _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 12)", 211);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 212);
 options = options || {};
-      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 198);
+      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 213);
 return templateSpec.call(container, Handlebars, context, options.helpers, options.partials, options.data);
     };
   },
 
   programWithDepth: function(fn, data, $depth) {
-    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "programWithDepth", 202);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 203);
+    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "programWithDepth", 217);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 218);
 var args = Array.prototype.slice.call(arguments, 2);
 
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 205);
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 220);
 return function(context, options) {
-      _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 11)", 205);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 206);
+      _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 13)", 220);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 221);
 options = options || {};
 
-      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 208);
+      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 223);
 return fn.apply(this, [context, options.data || data].concat(args));
     };
   },
   program: function(fn, data) {
-    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "program", 211);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 212);
+    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "program", 226);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 227);
 return function(context, options) {
-      _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 12)", 212);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 213);
+      _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "(anonymous 14)", 227);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 228);
 options = options || {};
 
-      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 215);
+      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 230);
 return fn(context, options.data || data);
     };
   },
-  noop: function() { _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "noop", 218);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 218);
+  noop: function() { _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "noop", 233);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 233);
 return ""; },
   invokePartial: function(partial, name, context, helpers, partials, data) {
-    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "invokePartial", 219);
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 220);
+    _yuitest_coverfunc("build/handlebars-base/handlebars-base.js", "invokePartial", 234);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 235);
 var options = { helpers: helpers, partials: partials, data: data };
 
-    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 222);
+    _yuitest_coverline("build/handlebars-base/handlebars-base.js", 237);
 if(partial === undefined) {
-      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 223);
+      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 238);
 throw new Handlebars.Exception("The partial " + name + " could not be found");
-    } else {_yuitest_coverline("build/handlebars-base/handlebars-base.js", 224);
+    } else {_yuitest_coverline("build/handlebars-base/handlebars-base.js", 239);
 if(partial instanceof Function) {
-      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 225);
+      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 240);
 return partial(context, options);
-    } else {_yuitest_coverline("build/handlebars-base/handlebars-base.js", 226);
+    } else {_yuitest_coverline("build/handlebars-base/handlebars-base.js", 241);
 if (!Handlebars.compile) {
-      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 227);
+      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 242);
 throw new Handlebars.Exception("The partial " + name + " could not be compiled when running in runtime-only mode");
     } else {
-      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 229);
-partials[name] = Handlebars.compile(partial);
-      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 230);
+      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 244);
+partials[name] = Handlebars.compile(partial, {data: data !== undefined});
+      _yuitest_coverline("build/handlebars-base/handlebars-base.js", 245);
 return partials[name](context, options);
     }}}
   }
 };
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 235);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 250);
 Handlebars.template = Handlebars.VM.template;
 
 // END(BROWSER)
@@ -430,10 +455,10 @@ This is a YUI port of the original Handlebars project, which can be found at
 @class Handlebars
 @since 3.5.0
 */
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 269);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 284);
 Y.Handlebars = Handlebars;
 
-_yuitest_coverline("build/handlebars-base/handlebars-base.js", 271);
+_yuitest_coverline("build/handlebars-base/handlebars-base.js", 286);
 Handlebars.VERSION += '-yui';
 
 /**
